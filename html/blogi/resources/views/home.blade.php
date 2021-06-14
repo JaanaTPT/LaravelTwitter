@@ -18,16 +18,18 @@
 
     </form>
 
-    @foreach($posts as $post)
+        @foreach($posts as $post)
         <div class="card mt-3">
             <div class="card-body">
                <p>{{ $post->content }}</p>
+                <p>{{ $post->user_id }}</p>
                 <a href="/post/{{$post->id}}">Read more</a>
             </div>
             <div class="card-footer text-muted">
                 {{$post->created_at->diffForHumans()}}
         </div>
         </div>
+
     @endforeach
 
     @endsection
