@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
     app:
@@ -6,10 +6,10 @@ services:
             context: ./docker
             dockerfile: app.dockerfile
         ports:
-            - 8001:80
+            - 1337:80
             # - 443:443
-        volumes: 
-           - ./html:/var/www/html
+        volumes:
+            - ./html:/var/www/html
 
     database:
         image: mariadb
@@ -18,7 +18,7 @@ services:
             MYSQL_ROOT_PASSWORD: example
         volumes:
             - dbdata:/var/lib/mysql
-        ports: 
+        ports:
             - 33061:3306
     # adminer:
     #     image: adminer
@@ -44,6 +44,6 @@ services:
     # redis:
     #   image: redis
     #   ports:
-    #     - 6379:6379  
+    #     - 6379:6379
 volumes:
     dbdata:
