@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Comment;
+use http\Client\Curl\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 class CommentFactory extends Factory
 {
@@ -22,7 +24,12 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'content' => $this->faker->sentence()
+            'content' => $this->faker->sentence(),
+            //'user_id'=> rand(1,10),
+            'user_id'=>  DB::table('users')
+                ->inRandomOrder()
+                ->first()
+                ->id,
         ];
     }
 }

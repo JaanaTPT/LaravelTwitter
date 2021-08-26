@@ -22,7 +22,8 @@
         <div class="card mt-3">
             <div class="card-body">
                <p>{{ $post->content }}</p>
-                <p>{{ $post->user_id }}</p>
+                <p style="font-style: italic">{{ $post->user->name }}</p>
+
                 <a href="/post/{{$post->id}}">Read more</a>
             </div>
             <div class="card-footer text-muted">

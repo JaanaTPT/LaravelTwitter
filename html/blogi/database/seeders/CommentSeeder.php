@@ -16,12 +16,10 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
+
         Post::all()->each(function ($post, $user) {
-           Comment::factory(rand(0,5))->create(['post_id' => $post->id, 'user_id' => rand(1,10)]);
-
-            //'user_id' => $user->id
+            Comment::factory(rand(0,5))->create(['post_id' => $post->id]);
         });
-
 
     }
 }
